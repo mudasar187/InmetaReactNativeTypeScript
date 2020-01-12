@@ -12,3 +12,7 @@ export async function deleteTodo(id: string) {
 export async function postTodo(newTodo: ITodoModel) {
   return await api.post('todos', newTodo);
 }
+
+export async function updateTodo(todo: ITodoModel) {
+  return await api.put(`todos/${todo.id}`, todo);
+}

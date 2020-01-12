@@ -1,62 +1,67 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import {
+  Headline,
+  Paragraph,
+  TextInput,
+  Button,
+  Snackbar,
+  Portal,
+} from 'react-native-paper';
 
-class LoginScreen extends React.Component {
-  state = {
-    firstName: 'old default value',
-  };
-
-  myFunction = () => {
-    this.setState({ firstName: 'the new value' });
-  };
-
-  componentDidMount() {
-    // HTTP Requests
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Hello LoginScreen</Text>
-        <Text>Hello LoginScreen</Text>
-        <NewText newerName="Crayon" clickButton={this.myFunction} />
-        <Button
-          icon="camera"
-          mode="contained"
-          onPress={() => this.myFunction()}>
-          Press me
-        </Button>
-      </View>
-    );
-  }
-}
-export default LoginScreen;
-
-interface IProps {
-  newerName: string | number | boolean;
-  newAge?: number;
-  clickButton: () => void;
-}
-
-type Props = {
-  newerName: string | number | boolean;
-  newAge?: number;
-  clickButton: () => void;
-};
-
-const NewText: React.FC<IProps> = anyObjName => {
-  const [companyName, setCompanyName] = React.useState('Crayon');
-  const [anotherState, setAnotherState] = React.useState(0);
-
-  React.useEffect(() => {
-    setCompanyName(anyObjName.newerName);
-  }, [anyObjName.newerName]);
-
+const LoginScreen: React.FC<any> = () => {
   return (
-    <View>
-      <Button onPress={() => anyObjName.clickButton}>Click</Button>
-      <Text style={{ fontSize: 50 }}>{companyName}</Text>
+    <View style={styles.base}>
+      <>
+        <StatusBar backgroundColor="ffffff" />
+      </>
+      <View style={styles.header}>
+        <Headline style={styles.appTitle}>Todo App</Headline>
+        <Paragraph style={styles.appDesc}>Your personal Todo App</Paragraph>
+      </View>
+      <>
+        <View style={styles.divider} />
+        <TextInput onChange={() => {}} label="Username or email" />
+      </>
+      <>
+        <View style={styles.divider} />
+        <TextInput onChange={() => {}} label="Password" secureTextEntry />
+      </>
     </View>
   );
 };
+
+export default LoginScreen;
+
+const styles = StyleSheet.create({
+  base: {
+    flex: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
+  },
+  divider: {
+    height: 16,
+  },
+  headline: {
+    fontSize: 30,
+  },
+  appDesc: {
+    textAlign: 'center',
+  },
+  header: {
+    padding: 32,
+  },
+  appTitle: {
+    textAlign: 'center',
+    fontSize: 35,
+    lineHeight: 35,
+    fontWeight: '700',
+  },
+  btn: {
+    height: 50,
+    paddingTop: 6,
+  },
+});

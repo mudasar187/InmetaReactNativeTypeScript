@@ -13,7 +13,7 @@ const LoginScreen: React.FC<any> = props => {
   return (
     <View style={styles.base}>
       <>
-        <StatusBar backgroundColor="ffffff" />
+        <StatusBar />
       </>
       <View style={styles.header}>
         <Headline style={styles.appTitle}>Todo App</Headline>

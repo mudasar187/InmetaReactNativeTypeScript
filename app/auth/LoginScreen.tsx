@@ -1,20 +1,28 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import {Button} from 'react-native-paper';
+import React, {useState} from 'react';
+import {View, Image, Text, StyleSheet} from 'react-native';
 
-const LoginScreen = () => {
+export default function LoginScreen() {
   return (
-    <View>
-      <Text>Hello LoginScreen</Text>
-      <Text>Hello LoginScreen</Text>
-      <Text>Hello LoginScreen</Text>
-      <Button
-        icon="camera"
-        mode="contained"
-        onPress={() => console.log('Pressed')}>
-        Press me
-      </Button>
+    <View style={loginStyles.container}>
+      <Image
+        style={loginStyles.image}
+        source={require('../../static/welcome.png')}
+      />
     </View>
   );
-};
-export default LoginScreen;
+}
+
+const loginStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+  },
+  image: {
+    width: 200,
+    height: 100,
+  },
+});

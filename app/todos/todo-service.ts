@@ -2,7 +2,7 @@ import { api } from './../api-config';
 import { ITodoModel } from './todo-model';
 
 export async function getTodos() {
-  return await api.get('todo');
+  return await api.get('todos');
 }
 
 export async function deleteTodo(id: string) {

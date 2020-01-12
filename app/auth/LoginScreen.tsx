@@ -9,7 +9,7 @@ import {
   Portal,
 } from 'react-native-paper';
 
-const LoginScreen: React.FC<any> = () => {
+const LoginScreen: React.FC<any> = props => {
   return (
     <View style={styles.base}>
       <>
@@ -29,7 +29,11 @@ const LoginScreen: React.FC<any> = () => {
       </>
       <>
         <View style={styles.divider} />
-        <Button style={styles.btn} disabled={false} mode="contained">
+        <Button
+          style={styles.btn}
+          disabled={false}
+          mode="contained"
+          onPress={() => props.navigation.navigate('todoListScreen')}>
           Login
         </Button>
       </>

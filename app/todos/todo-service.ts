@@ -13,6 +13,6 @@ export async function postTodo(newTodo: ITodoModel) {
   return await api.post('todos', newTodo);
 }
 
-export async function updateTodo(todo: ITodoModel) {
-  return await api.put(`todos/${todo.id}`, todo);
+export async function putTodo(updatedTodo: ITodoModel) {
+  return await api.put(`todos/${updatedTodo.id}`, updatedTodo);
 }

@@ -21,8 +21,8 @@
     {
       "title": "Coffe",
       "description": "Take a coffe break",
-      "finished": false,
-      "id": 4
+      "id": 4,
+      "finished": true
     }
   ]
 }

@@ -27,6 +27,12 @@ const LoginScreen: React.FC<any> = () => {
         <View style={styles.divider} />
         <TextInput onChange={() => {}} label="Password" secureTextEntry />
       </>
+      <>
+        <View style={styles.divider} />
+        <Button style={styles.btn} disabled={false} mode="contained">
+          Login
+        </Button>
+      </>
     </View>
   );
 };

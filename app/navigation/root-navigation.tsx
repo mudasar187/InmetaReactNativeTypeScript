@@ -9,7 +9,7 @@ export default function RootNavigation() {
   return (
     <NavigationNativeContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationNativeContainer>
   );

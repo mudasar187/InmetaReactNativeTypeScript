@@ -16,8 +16,10 @@ const TodoListScreen: React.FC<void> = () => {
   const [todos, setTodos] = useState<ITodoModel[]>([]);
 
   const fetch = async () => {
+    setLoading(true);
     const { data } = await getTodos();
     setTodos(data);
+    setLoading(false);
   };
 
   useEffect(() => {

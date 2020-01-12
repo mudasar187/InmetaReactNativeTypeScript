@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "title": "Cook",
+      "description": "Cook steak",
+      "id": 1,
+      "finished": false
+    },
+    {
+      "title": "Buy food",
+      "description": "Buy food",
+      "id": 2,
+      "finished": false
+    },
+    {
+      "title": "Pimp BMW",
+      "description": "Pimp your car",
+      "id": 3,
+      "finished": true
+    }
+  ]
+}

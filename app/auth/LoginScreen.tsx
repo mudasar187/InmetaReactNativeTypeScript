@@ -32,6 +32,7 @@ class LoginScreen extends React.Component {
   }
 }
 export default LoginScreen;
+
 interface IProps {
   newerName: string | number | boolean;
   newAge?: number;

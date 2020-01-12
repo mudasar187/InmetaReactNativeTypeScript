@@ -7,15 +7,9 @@
       "finished": false
     },
     {
-      "title": "Buy food",
-      "description": "Buy food",
+      "title": "Buy Food",
+      "description": "Buy food fast",
       "id": 2,
-      "finished": false
-    },
-    {
-      "title": "Pimp BMW",
-      "description": "Pimp your car",
-      "id": 3,
       "finished": true
     }
   ]

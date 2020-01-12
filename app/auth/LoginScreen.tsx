@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
 
 export default function LoginScreen() {
   return (
@@ -17,9 +17,6 @@ const loginStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  text: {
-    fontSize: 20,
   },
   image: {
     width: 200,

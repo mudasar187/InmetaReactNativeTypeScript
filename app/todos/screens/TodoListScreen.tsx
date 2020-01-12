@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import {
   ActivityIndicator,
@@ -10,19 +10,25 @@ import {
 } from 'react-native-paper';
 import { ITodoModel } from '../todo-model';
 import { getTodos } from '../todo-service';
+import TodoView from '../components/TodoView';
 
 const TodoListScreen: React.FC<void> = () => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [todos, setTodos] = useState<ITodoModel[]>([]);
+  const [todos, setTodos] = React.useState<ITodoModel[]>([]);
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<string>('');
 
   const fetch = async () => {
     setLoading(true);
-    const { data } = await getTodos();
-    setTodos(data);
+    try {
+      const { data } = await getTodos(); // response.data
+      setTodos(data);
+    } catch (e) {
+      setError(e.message);
+    }
     setLoading(false);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetch();
   }, []);
 
@@ -34,13 +40,32 @@ const TodoListScreen: React.FC<void> = () => {
         </View>
       ) : (
         <View style={styles.base}>
-          {todos.map(t => (
-            <View key={t.id}>
-              <Text>{t.title}</Text>
+          {todos.map(todo => (
+            <View key={todo.id}>
+              <TodoView item={todo} />
             </View>
           ))}
         </View>
       )}
+      <>
+        <Portal>
+          <Snackbar
+            visible={error.length > 0}
+            duration={5000}
+            action={{
+              label: 'close [x]',
+              onPress: () => {
+                setError('');
+              },
+            }}
+            onDismiss={async () => {
+              setError('');
+              await fetch();
+            }}>
+            {error}
+          </Snackbar>
+        </Portal>
+      </>
     </>
   );
 };

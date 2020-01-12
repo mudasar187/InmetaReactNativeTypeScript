@@ -11,6 +11,7 @@ import {
 import { ITodoModel } from '../todo-model';
 import { getTodos } from '../todo-service';
 import TodoView from '../components/TodoView';
+import Header from '../components/Header';
 
 const TodoListScreen: React.FC<void> = () => {
   const [todos, setTodos] = React.useState<ITodoModel[]>([]);
@@ -32,6 +33,11 @@ const TodoListScreen: React.FC<void> = () => {
     setTodos([...todos.filter(item => item.id !== value)]);
   };
 
+  const handleAddToList = (value: ITodoModel) => {
+    setTodos([...todos, value]);
+    // const newArray = array.push(value) // reference
+  };
+
   React.useEffect(() => {
     fetch();
   }, []);
@@ -44,6 +50,8 @@ const TodoListScreen: React.FC<void> = () => {
         </View>
       ) : (
         <View style={styles.base}>
+          <Header text="" updateList={handleAddToList} />
+          <Divider />
           {todos.map(todo => (
             <View key={todo.id}>
               <TodoView removeTodoFromList={handleDeleteFromList} item={todo} />

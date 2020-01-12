@@ -59,9 +59,9 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList }) => {
           <Dialog.Content>
             <View style={{ marginBottom: 20 }}>
               <View style={styles.divider} />
-              <TextInput />
+              <TextInput label="Title" />
               <View style={styles.divider} />
-              <TextInput />
+              <TextInput label="Description" />
             </View>
             <View style={{ flexDirection: 'row', alignContent: 'center' }}>
               <Switch />

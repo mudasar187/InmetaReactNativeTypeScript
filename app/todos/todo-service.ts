@@ -8,3 +8,7 @@ export async function getTodos() {
 export async function deleteTodo(id: string) {
   return await api.delete('todos/' + id);
 }
+
+export async function postTodo(newTodo: ITodoModel) {
+  return await api.post('todos', newTodo);
+}

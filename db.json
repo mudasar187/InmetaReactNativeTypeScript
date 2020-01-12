@@ -11,6 +11,18 @@
       "description": "Buy food fast",
       "id": 2,
       "finished": true
+    },
+    {
+      "title": "Do React",
+      "description": "You must do React",
+      "id": 3,
+      "finished": false
+    },
+    {
+      "title": "Coffe",
+      "description": "Take a coffe break",
+      "finished": false,
+      "id": 4
     }
   ]
 }
